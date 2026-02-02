@@ -76,7 +76,7 @@ This project was developed as part of an **Intern Screening Task**, with several
 
 ### 1️⃣ Backend Setup (Django)
 
-
+```bash
 cd backend
 python -m venv venv
 Activate virtual environment

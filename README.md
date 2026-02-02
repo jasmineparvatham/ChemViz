@@ -69,15 +69,6 @@ This project was developed as part of an **Intern Screening Task**, with several
 | Authentication | JWT | Secure API access |
 | Version Control | Git & GitHub | Source control |
 
----
-
-## 📂 Project Structure
-ChemViz/
-├── backend/ # Django   backend (API + analytics)
-├── web/ # React web frontend
-├── desktop/ # PyQt5 desktop application
-├── .gitignore
-└── README.md
 
 ---
 
@@ -85,7 +76,7 @@ ChemViz/
 
 ### 1️⃣ Backend Setup (Django)
 
-```bash
+
 cd backend
 python -m venv venv
 Activate virtual environment

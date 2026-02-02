@@ -24,7 +24,10 @@ LOGOUT_REDIRECT_URL = "http://localhost:5173/"
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", SECRET_KEY)
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure-dev-key-change-this"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  os.getenv("DEBUG", "0") == "1"
@@ -41,13 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django.contrib.sites",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",
-    "dj_rest_auth",
-    "dj_rest_auth.registration",
     'rest_framework.authtoken',
     'rest_framework',
     'corsheaders',
@@ -76,21 +72,6 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'chemviz.urls'
-SITE_ID = 1
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-ACCOUNT_EMAIL_VERIFICATION = "none"
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "SCOPE": ["profile", "email"],
-        "AUTH_PARAMS": {"access_type": "online"},
-    }
-}
 
 TEMPLATES = [
     {

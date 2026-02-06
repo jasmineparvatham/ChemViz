@@ -161,13 +161,11 @@ Advanced comparative analytics
 
 Cloud storage integration
 
+
 👩‍💻 Author
 
-Jasmine Parvatham
-
-B.Tech – Information Technology 
-
-2nd year
-
-National Institue of Technology Karnataka,Surathkal
+Jasmine Parvatham<br>
+B.Tech – Information Technology<br> 
+2nd year<br>
+National Institue of Technology Karnataka,Surathkal<br>
 

@@ -132,8 +132,7 @@ Heat Exchanger 1,HeatExchanger,200.3,10.5,220
 
 
 A sample file (sample_equipment_data.csv) is included for testing and demo purposes.
-
-
+```
 
 🌱 Future Enhancements
 

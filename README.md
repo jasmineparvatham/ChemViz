@@ -72,6 +72,23 @@ This project was developed as part of an **Intern Screening Task**, with several
 
 ---
 
+## 🌐 Live Deployment
+
+- **Web Application (Frontend – Netlify):**  
+  https://chemviz-fossee-junnu.netlify.app/
+
+- **Backend API (Django – Render):**  
+  https://chemviz-fosseebackend-junnu.onrender.com/
+
+- **CSV Upload API Endpoint:**  
+  https://chemviz-fosseebackend-junnu.onrender.com/api/reports/upload/
+
+ ---
+
+> The frontend communicates with the Django REST backend through secured APIs.  
+> Users can upload CSV files, view analytics, and download PDF and summary reports directly from the web interface.
+
+
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Backend Setup (Django)

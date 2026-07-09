@@ -1,171 +1,113 @@
-# 🧪 ChemViz – Chemical Equipment Parameter Visualizer  
-**Hybrid Web + Desktop Application**
+# ChemViz – Chemical Equipment Analytics Platform
 
----
+## Project Overview
+ChemViz is a hybrid web and desktop application designed to process, analyze, and visualize chemical equipment datasets. Engineers often need to inspect equipment parameters across multiple datasets to identify trends, compare values, and generate reports efficiently. Managing and interpreting large volumes of equipment parameters (such as flowrate, pressure, and temperature) from CSV files can be error-prone and time-consuming. ChemViz automates this data pipeline, providing statistical analysis and visual reports. 
 
-## 📌 Project Overview
+A hybrid approach was implemented to provide flexibility: a web client for accessible cloud usage, and a desktop client for native execution, both powered by a single centralized REST API.
 
-**ChemViz** is a hybrid **Web + Desktop application** designed to visualize and analyze chemical equipment data from CSV files.  
-It allows users to upload datasets containing equipment parameters such as **flowrate, pressure, and temperature**, performs backend analytics, and presents insights through interactive charts and summaries.
+## Features
+- **CSV Data Processing**: Upload, validate, and parse chemical equipment data via Pandas.
+- **Statistical Summaries**: Automated calculation of averages, distributions, and dataset metrics.
+- **Data Visualization**: Interactive web charts (Chart.js) and native desktop plots (Matplotlib).
+- **Dataset History**: Persistent storage and management of past uploaded datasets.
+- **Authentication**: JWT-based authentication for user accounts and dataset history management.
+- **Report Generation**: Automated PDF and CSV summary report downloads.
+- **Shared Backend**: A single Django REST API serving both React and PyQt5 clients seamlessly.
 
-A **single Django REST backend** powers both:
-- 🌐 a **React-based web application**
-- 🖥️ a **PyQt5 desktop application**
+## System Architecture
 
-This project was developed as part of an **Intern Screening Task**, with several additional features and strong backend design beyond the base requirements.
+React Web Application
+        |
+PyQt5 Desktop Application
+        |
+        ↓
+Django REST API Backend
+        |
+        ↓
+Analytics Processing + Database
 
----
+**Data Flow:**
+CSV upload → validation → Pandas processing → analytics generation → visualization/report generation
 
-## 🚀 Key Features
+## How It Works
+1. User uploads a chemical equipment CSV dataset.
+2. Django backend validates and processes the uploaded data.
+3. Pandas-based analytics modules generate statistical summaries.
+4. Results are returned through REST APIs.
+5. Web and desktop clients visualize the processed data and generate reports.
 
-### 🔹 CSV Upload & Processing
-- Upload CSV files containing chemical equipment data
-- Automatic validation and parsing using **Pandas**
-- Works for both public and authenticated users
-
-### 🔹 Backend Analytics (Django + DRF)
-- Total equipment count
-- Average flowrate, pressure, and temperature
-- Equipment type distribution
-- Advanced analytics:
-  - Histograms
-  - Boxplots
-  - Correlation analysis
-  - Grouped averages
-  - Insight generation
-
-### 🔹 Visualizations
-- **Web**: Interactive charts using **Chart.js**
-- **Desktop**: Native plots using **Matplotlib**
-- Clean separation between analytics (backend) and visualization (frontend)
-
-### 🔹 History & Dataset Management
-- Uploaded datasets are stored with metadata
-- Backend manages dataset storage efficiently
-- Users can star/unstar important datasets
-- Dataset history available for authenticated users
-
-### 🔹 Reports & Exports
-- 📄 Generate **PDF reports**
-- 📊 Download **summary CSV files**
-- Files served securely through backend APIs
-
-### 🔹 Authentication
-- JWT-based authentication
-- Public mode for quick analysis
-- Logged-in users get persistent history and dataset management
-
----
-
-## 🛠 Tech Stack
-
+## Technology Stack
 | Layer | Technology | Purpose |
-|-----|-----------|--------|
-| Backend | Django + Django REST Framework | API & analytics |
-| Data Processing | Pandas | CSV parsing & statistics |
-| Database | SQLite | Dataset metadata storage |
-| Web Frontend | React.js + MUI + Chart.js | Interactive UI |
-| Desktop Frontend | PyQt5 + Matplotlib | Native desktop UI |
-| Authentication | JWT | Secure API access |
-| Version Control | Git & GitHub | Source control |
+|-------|------------|---------|
+| **Backend** | Django REST Framework | Centralized API routing and business logic |
+| **Data Processing** | Pandas | CSV parsing and statistical analytics |
+| **Database** | SQLite | User and dataset metadata storage |
+| **Web Frontend** | React, Material UI, Vite | Component-driven responsive web UI |
+| **Web Charts** | Chart.js | Interactive browser-based visualization |
+| **Desktop App** | PyQt5, Matplotlib | Native desktop UI and rendering |
+| **Authentication**| JWT | Secure API access control |
+| **API Communication** | REST APIs, Axios, HTTP Requests | Client-server communication |
 
+## Demo
+**Demo Video:**
+https://drive.google.com/drive/folders/19KJ9whxYh9rVfueAZoyf_4ZXoayXUNzO?usp=sharing
 
----
+## Live Deployment
+**Web Application:**
+https://chemviz-fossee-junnu.netlify.app/
 
-## 🌐 Live Deployment
+**Backend API:**
+https://chemviz-fosseebackend-junnu.onrender.com/
 
-- **Web Application (Frontend – Netlify):**  
-  https://chemviz-fossee-junnu.netlify.app/
+**CSV Upload API:**
+https://chemviz-fosseebackend-junnu.onrender.com/api/reports/upload/
 
-- **Backend API (Django – Render):**  
-  https://chemviz-fosseebackend-junnu.onrender.com/
+*The backend may take some time to respond initially due to free-tier hosting.*
 
-- **CSV Upload API Endpoint:**  
-  https://chemviz-fosseebackend-junnu.onrender.com/api/reports/upload/
+## Local Setup
 
- ---
-
-> The frontend communicates with the Django REST backend through secured APIs.  
-> Users can upload CSV files, view analytics, and download PDF and summary reports directly from the web interface.
-
-
-## ⚙️ Setup Instructions
-
-### 1️⃣ Backend Setup (Django)
-
+### Backend (Django)
 ```bash
 cd backend
 python -m venv venv
-Activate virtual environment
 
-Windows:
-
+# Activate virtual environment
+# Windows:
 venv\Scripts\activate
-
-
-macOS/Linux:
-
+# macOS/Linux:
 source venv/bin/activate
 
-
-Install dependencies
-
+# Install dependencies
 pip install -r requirements.txt
 
-
-Run migrations and server
-
+# Run migrations and start server
 python manage.py migrate
 python manage.py runserver
+```
 
-
-Backend runs at:
-
-http://127.0.0.1:8000/
-
-2️⃣ Web Frontend Setup (React)
+### Web Frontend (React)
+```bash
 cd web
 npm install
 npm run dev
+```
 
-
-Web application runs at:
-
-http://localhost:5173/
-
-3️⃣ Desktop Application Setup (PyQt5)
+### Desktop Application (PyQt5)
+```bash
 cd desktop
 pip install -r requirements.txt
 python main.py
-
-
-The desktop app connects to the same Django backend APIs.
-
-📄 Sample CSV Format
-Equipment Name,Type,Flowrate,Pressure,Temperature
-Reactor A,Reactor,120.5,15.2,350
-Pump X,Pump,80.0,5.5,90
-Heat Exchanger 1,HeatExchanger,200.3,10.5,220
-
-
-A sample file (sample_equipment_data.csv) is included for testing and demo purposes.
 ```
+*A sample file (`sample_equipment_data.csv`) is included in the repository root for testing.*
 
-🌱 Future Enhancements
+## Repository Structure
+- `backend/` - Django REST API and analytics processing
+- `web/` - React frontend
+- `desktop/` - PyQt5 desktop client
 
-Enhanced UI/UX theming
-
-OAuth-based authentication
-
-Advanced comparative analytics
-
-Cloud storage integration
-
-
-👩‍💻 Author
-
-Jasmine Parvatham<br>
-B.Tech – Information Technology<br> 
-2nd year<br>
-National Institue of Technology Karnataka,Surathkal<br>
-
+## Engineering Highlights
+- Designed a shared REST API used by two different clients
+- Separated analytics logic from API handling
+- Implemented reusable visualization workflows
+- Added authentication and dataset management
+- Built report generation functionality

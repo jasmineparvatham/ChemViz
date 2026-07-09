@@ -9,7 +9,12 @@ __pycache__/
 .env
 venv/
 backend/venv/
+desktop/venv/
 *.egg-info/
+backend/chemviz/datasets/
+*.py[cod]
+env/
+.venv/
 
 # Django
 media/
@@ -19,7 +24,10 @@ staticfiles/
 node_modules/
 dist/
 .vite/
+build/
 
 # OS
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/

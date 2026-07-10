@@ -49,13 +49,14 @@ CSV upload → validation → Pandas processing → analytics generation → vis
 | **API Communication** | REST APIs, Axios, HTTP Requests | Client-server communication |
 
 ## Demo
-**Demo Video:**
-https://drive.google.com/drive/folders/19KJ9whxYh9rVfueAZoyf_4ZXoayXUNzO?usp=sharing
+
+**Demo Video:**  
+[Watch Demo](https://drive.google.com/drive/folders/19KJ9whxYh9rVfueAZoyf_4ZXoayXUNzO?usp=sharing)
 
 ## Live Deployment
 
-**Application:**
-https://chemviz-fossee-junnu.netlify.app/
+**Application:**  
+[Launch ChemViz](https://chemviz-fossee-junnu.netlify.app/)
 
 *Powered by a deployed Django REST backend.*
 

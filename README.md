@@ -53,16 +53,11 @@ CSV upload → validation → Pandas processing → analytics generation → vis
 https://drive.google.com/drive/folders/19KJ9whxYh9rVfueAZoyf_4ZXoayXUNzO?usp=sharing
 
 ## Live Deployment
-**Web Application:**
+
+**Application:**
 https://chemviz-fossee-junnu.netlify.app/
 
-**Backend API:**
-https://chemviz-fosseebackend-junnu.onrender.com/
-
-**CSV Upload API:**
-https://chemviz-fosseebackend-junnu.onrender.com/api/reports/upload/
-
-*The backend may take some time to respond initially due to free-tier hosting.*
+*Powered by a deployed Django REST backend.*
 
 ## Local Setup
 
